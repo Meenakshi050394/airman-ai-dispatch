@@ -1,0 +1,50 @@
+[
+  {
+    "id": "INS001",
+    "ratings": ["C172", "PA28"],
+    "availability": [
+      "2026-02-17",
+      "2026-02-18",
+      "2026-02-19",
+      "2026-02-20"
+    ],
+    "max_duty_hours_per_day": 8,
+    "sim_instructor": true
+  },
+  {
+    "id": "INS002",
+    "ratings": ["C172"],
+    "availability": [
+      "2026-02-17",
+      "2026-02-18",
+      "2026-02-19",
+      "2026-02-21"
+    ],
+    "max_duty_hours_per_day": 6,
+    "sim_instructor": false
+  },
+  {
+    "id": "INS003",
+    "ratings": ["DA42"],
+    "availability": [
+      "2026-02-18",
+      "2026-02-19",
+      "2026-02-20",
+      "2026-02-21"
+    ],
+    "max_duty_hours_per_day": 8,
+    "sim_instructor": true
+  },
+  {
+    "id": "INS004",
+    "ratings": ["C172", "DA42"],
+    "availability": [
+      "2026-02-17",
+      "2026-02-18",
+      "2026-02-20",
+      "2026-02-21"
+    ],
+    "max_duty_hours_per_day": 7,
+    "sim_instructor": true
+  }
+]

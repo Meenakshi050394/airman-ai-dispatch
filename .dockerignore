@@ -1,0 +1,21 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Local DB / env files
+*.sqlite3
+*.db
+.env
+
+# Git (not needed inside container)
+.git
+.gitignore
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Virtual environment (if exists locally)
+venv/

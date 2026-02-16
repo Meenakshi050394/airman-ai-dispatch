@@ -1,0 +1,48 @@
+[
+  {
+    "id": "AC001",
+    "type": "C172",
+    "availability": [
+      "2026-02-17",
+      "2026-02-18",
+      "2026-02-19",
+      "2026-02-20",
+      "2026-02-21"
+    ],
+    "maintenance_status": "AVAILABLE"
+  },
+  {
+    "id": "AC002",
+    "type": "C172",
+    "availability": [
+      "2026-02-17",
+      "2026-02-18",
+      "2026-02-19",
+      "2026-02-20"
+    ],
+    "maintenance_status": "AVAILABLE"
+  },
+  {
+    "id": "AC003",
+    "type": "PA28",
+    "availability": [
+      "2026-02-18",
+      "2026-02-19",
+      "2026-02-20",
+      "2026-02-21"
+    ],
+    "maintenance_status": "MAINTENANCE"
+  },
+  {
+    "id": "AC004",
+    "type": "DA42",
+    "availability": [
+      "2026-02-17",
+      "2026-02-18",
+      "2026-02-19",
+      "2026-02-20",
+      "2026-02-21"
+    ],
+    "maintenance_status": "AVAILABLE"
+  }
+]
