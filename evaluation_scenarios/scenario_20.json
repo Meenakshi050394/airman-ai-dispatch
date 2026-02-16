@@ -1,0 +1,194 @@
+{
+  "students": [
+    {
+      "id": "STU001",
+      "stage": "C172",
+      "priority": 1,
+      "availability": [
+        "2026-02-17",
+        "2026-02-18",
+        "2026-02-19"
+      ]
+    },
+    {
+      "id": "STU002",
+      "stage": "C172",
+      "priority": 2,
+      "availability": [
+        "2026-02-17",
+        "2026-02-18",
+        "2026-02-20"
+      ]
+    },
+    {
+      "id": "STU003",
+      "stage": "DA42",
+      "priority": 1,
+      "availability": [
+        "2026-02-18",
+        "2026-02-19",
+        "2026-02-21"
+      ]
+    },
+    {
+      "id": "STU001",
+      "stage": "C172",
+      "priority": 1,
+      "availability": [
+        "2026-02-17",
+        "2026-02-18",
+        "2026-02-19"
+      ]
+    },
+    {
+      "id": "STU002",
+      "stage": "C172",
+      "priority": 2,
+      "availability": [
+        "2026-02-17",
+        "2026-02-18",
+        "2026-02-20"
+      ]
+    },
+    {
+      "id": "STU003",
+      "stage": "DA42",
+      "priority": 1,
+      "availability": [
+        "2026-02-18",
+        "2026-02-19",
+        "2026-02-21"
+      ]
+    }
+  ],
+  "instructors": [
+    {
+      "id": "INS001",
+      "ratings": [
+        "C172",
+        "PA28"
+      ],
+      "availability": [
+        "2026-02-17",
+        "2026-02-18",
+        "2026-02-19",
+        "2026-02-20"
+      ],
+      "max_duty_hours_per_day": 8,
+      "sim_instructor": true
+    },
+    {
+      "id": "INS002",
+      "ratings": [
+        "C172"
+      ],
+      "availability": [
+        "2026-02-17",
+        "2026-02-18",
+        "2026-02-19",
+        "2026-02-21"
+      ],
+      "max_duty_hours_per_day": 6,
+      "sim_instructor": false
+    },
+    {
+      "id": "INS003",
+      "ratings": [
+        "DA42"
+      ],
+      "availability": [
+        "2026-02-18",
+        "2026-02-19",
+        "2026-02-20",
+        "2026-02-21"
+      ],
+      "max_duty_hours_per_day": 8,
+      "sim_instructor": true
+    },
+    {
+      "id": "INS004",
+      "ratings": [
+        "C172",
+        "DA42"
+      ],
+      "availability": [
+        "2026-02-17",
+        "2026-02-18",
+        "2026-02-20",
+        "2026-02-21"
+      ],
+      "max_duty_hours_per_day": 7,
+      "sim_instructor": true
+    }
+  ],
+  "aircraft": [
+    {
+      "id": "AC001",
+      "type": "C172",
+      "availability": [
+        "2026-02-17",
+        "2026-02-18",
+        "2026-02-19",
+        "2026-02-20",
+        "2026-02-21"
+      ],
+      "maintenance_status": "AVAILABLE"
+    }
+  ],
+  "simulators": [
+    {
+      "id": "SIM001",
+      "type": "C172_SIM",
+      "availability": [
+        "2026-02-17",
+        "2026-02-18",
+        "2026-02-19",
+        "2026-02-20",
+        "2026-02-21"
+      ]
+    },
+    {
+      "id": "SIM002",
+      "type": "DA42_SIM",
+      "availability": [
+        "2026-02-18",
+        "2026-02-19",
+        "2026-02-20",
+        "2026-02-21"
+      ]
+    }
+  ],
+  "time_slots": [
+    {
+      "date": "2026-02-17",
+      "slots": [
+        {
+          "slot_id": "S1",
+          "start": "08:00",
+          "end": "10:00"
+        },
+        {
+          "slot_id": "S2",
+          "start": "10:00",
+          "end": "12:00"
+        }
+      ]
+    },
+    {
+      "date": "2026-02-18",
+      "slots": [
+        {
+          "slot_id": "S3",
+          "start": "08:00",
+          "end": "10:00"
+        },
+        {
+          "slot_id": "S4",
+          "start": "10:00",
+          "end": "12:00"
+        }
+      ]
+    }
+  ],
+  "base_icao": "VOBG"
+}
