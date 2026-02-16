@@ -148,7 +148,7 @@ def generate_roster(db: Session = Depends(get_db)):
 # =====================================================
 
 @app.post("/dispatch/recompute")
-def recompute(event: dict, db: Session = Depends(get_db)):
+def recompute(payload: dict, db: Session = Depends(get_db)):
 
     students = db.query(Student).all()
     instructors = db.query(Instructor).all()
@@ -197,11 +197,19 @@ def recompute(event: dict, db: Session = Depends(get_db)):
 
     structured_slots = [{"date": d, "slots": s} for d, s in slots_map.items()]
 
-    current_roster = event.get("current_roster")
+    current_roster = payload.get("current_roster")
+    event = payload.get("event")
+
     if not current_roster:
         raise HTTPException(
             status_code=400,
             detail="current_roster must be provided"
+        )
+
+    if not event:
+        raise HTTPException(
+            status_code=400,
+            detail="event must be provided"
         )
 
     engine = ReallocationEngine(

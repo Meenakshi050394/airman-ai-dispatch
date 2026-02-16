@@ -77,11 +77,15 @@ def apply_dispatch(roster, base_icao, db):
     weather_rules = parse_weather_rules(weather_md)
 
     for day in roster:
-        slots = day.get("slots", [])
+        slots = day.get("slots") or day.get("assignments", [])
 
         for slot in slots:
 
-            if slot["activity"] != "FLIGHT":
+            slot.setdefault("citations", [])
+            slot.setdefault("reasons", [])
+            slot.setdefault("dispatch_decision", None)
+
+            if slot.get("activity") != "FLIGHT":
                 continue
 
             aircraft_type = slot.get("aircraft_type")

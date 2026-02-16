@@ -74,27 +74,24 @@ class ReallocationEngine:
         affected = []
 
         for day in roster:
-            date = day.get("date")
+            slots = day.get("slots") or day.get("assignments", [])
 
-            for slot in day["slots"]:
+            for slot in slots:
 
                 if event["type"] == "AIRCRAFT_UNSERVICEABLE":
-                    if slot["resource_id"] == event["aircraft_id"]:
+                    if slot.get("aircraft_id") == event.get("aircraft_id"):
                         affected.append(slot["slot_id"])
 
                 elif event["type"] == "INSTRUCTOR_UNAVAILABLE":
-                    if slot["instructor_id"] == event["instructor_id"]:
+                    if slot.get("instructor_id") == event.get("instructor_id"):
                         affected.append(slot["slot_id"])
 
                 elif event["type"] == "STUDENT_UNAVAILABLE":
-                    if slot["student_id"] == event["student_id"]:
+                    if slot.get("student_id") == event.get("student_id"):
                         affected.append(slot["slot_id"])
 
                 elif event["type"] == "WEATHER_UPDATE":
-                    # Only affect specified dates if provided
-                    event_dates = event.get("dates")
-                    if not event_dates or date in event_dates:
-                        affected.append(slot["slot_id"])
+                    affected.append(slot["slot_id"])
 
         return affected
 
@@ -106,10 +103,18 @@ class ReallocationEngine:
         new_roster = deepcopy(roster)
 
         for day in new_roster:
-            day["slots"] = [
-                slot for slot in day["slots"]
+            slots = day.get("slots") or day.get("assignments", [])
+
+            filtered = [
+                slot for slot in slots
                 if slot["slot_id"] not in affected_slot_ids
             ]
+
+            # Preserve original structure
+            if "slots" in day:
+                day["slots"] = filtered
+            else:
+                day["assignments"] = filtered
 
         return new_roster
 
@@ -126,7 +131,9 @@ class ReallocationEngine:
         # Build lookup from repaired roster
         for day in repaired_roster:
             date = day["date"]
-            for slot in day["slots"]:
+            slots = day.get("slots") or day.get("assignments", [])
+
+            for slot in slots:
                 repaired_lookup[slot["slot_id"]] = slot
                 slot_day_lookup[slot["slot_id"]] = date
 
@@ -140,7 +147,10 @@ class ReallocationEngine:
 
             for day in merged:
                 if day["date"] == target_date:
-                    day["slots"].append(repaired_slot)
+                    if "slots" in day:
+                        day["slots"].append(repaired_slot)
+                    else:
+                        day.setdefault("assignments", []).append(repaired_slot)
                     break
 
         return merged
@@ -152,11 +162,15 @@ class ReallocationEngine:
     def _build_diff(self, old, new):
 
         def flatten(roster):
-            return {
-                slot["slot_id"]: slot
-                for day in roster
-                for slot in day["slots"]
-            }
+            flat = {}
+
+            for day in roster:
+                slots = day.get("slots") or day.get("assignments", [])
+
+                for slot in slots:
+                    flat[slot["slot_id"]] = slot
+
+            return flat
 
         old_map = flatten(old)
         new_map = flatten(new)
