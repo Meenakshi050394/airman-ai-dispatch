@@ -169,7 +169,7 @@ Services started:
 ### Open browser:
 
 - http://localhost:8000/docs
-- 
+
 All endpoints can be tested interactively.
 
 ## Dispatch Logic
@@ -197,7 +197,7 @@ Evaluation harness computes:
 * Scheduling coverage
 * Citation coverage
 * Unassigned workload
-* 
+  
 Used to measure scheduling quality across scenarios.
 
 ## Future Improvements
